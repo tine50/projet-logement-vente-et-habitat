@@ -7,7 +7,7 @@ include "connexion_base_donnee/connexion_db.php";
 include "bd/selection_bien.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -31,14 +31,7 @@ include "bd/selection_bien.php";
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: EstateAgency - v4.1.0
-  * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  <link href="assets/css/style.css" rel="stylesheet">>
 </head>
 
 <body>
@@ -77,20 +70,6 @@ include "bd/selection_bien.php";
           <li class="nav-item">
             <a class="nav-link " href="agents-grid.php">Agents</a>
           </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link " href="blog-grid.php">Blog</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item " href="property-single.php">Propriété unique</a>
-              <a class="dropdown-item " href="blog-single.php">Blog unique</a>
-              <a class="dropdown-item " href="agents-grid.php">Grille d'agent</a>
-              <a class="dropdown-item " href="agent-single.php">Agent unique</a>
-            </div>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link " href="contact.php">Contacter</a>
           </li>
@@ -138,16 +117,6 @@ include "bd/selection_bien.php";
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="grid-option">
-              <form>
-                <select class="custom-select">
-                  <option selected>Tout</option>
-                  <option value="1">Du nouveau au vieux</option>
-                  <option value="2">A louer</option>
-                  <option value="3">A vendre</option>
-                </select>
-              </form>
-            </div>
           </div>
           <?php
           for($i = 0; $i < COUNT($selection_all); $i ++)
@@ -156,7 +125,7 @@ include "bd/selection_bien.php";
           <div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="images_services/<?php echo $type_service?>/<?php echo $selection_all[$i]["image_$extension"]?>" alt="" class="img-a img-fluid" style="width:600px; height : 400px">
+                <img src="images_services/<?php echo $extension?>/<?php echo $selection_all[$i]["image_$extension"]?>" alt="" class="img-a img-fluid" style="width:600px; height : 400px">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">
@@ -219,33 +188,6 @@ include "bd/selection_bien.php";
 
         ?>
 
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <nav class="pagination-a">
-              <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                  <a class="page-link" href="#" tabindex="-1">
-                    <span class="bi bi-chevron-left"></span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item next">
-                  <a class="page-link" href="#">
-                    <span class="bi bi-chevron-right"></span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
         </div>
       </div>
     </section><!-- End Property Grid Single-->

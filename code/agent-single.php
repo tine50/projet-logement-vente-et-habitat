@@ -1,9 +1,10 @@
 <?php
   include "connexion_base_donnee/connexion_db.php";
   include "bd/selection_agent.php";
+  include "bd/selection_bien.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -201,40 +202,33 @@
           </div>
           <div class="col-md-12 section-t8">
             <div class="title-box-d">
-              <h3 class="title-d">Mes Biens (6)</h3>
+              <h3 class="title-d">Mes Biens (<?php echo count($selection_biens_maison_agent) +  count($selection_biens_studio_agent) + count($selection_biens_appartement_agent) + count($selection_biens_terrain_agent)?>)</h3>
             </div>
           </div>
           <div class="row property-grid grid">
-            <div class="col-sm-12">
-              <div class="grid-option">
-                <form>
-                  <select class="custom-select">
-                    <option selected>All</option>
-                    <option value="1">New to Old</option>
-                    <option value="2">For Rent</option>
-                    <option value="3">For Sale</option>
-                  </select>
-                </form>
-              </div>
-            </div>
+          <!--Debut de l'affichage des propriétés maison-->
+          <h1><i>MAISON</i></h1>
+          <?php
+            for($i = 0; $i < count($selection_biens_maison_agent); $i ++)
+            {
+          ?>
             <div class="col-md-4">
-              <div class="card-box-a card-shadow">
+              <div class="card-box-a card-shadow border">
                 <div class="img-box-a">
-                  <img src="assets/img/property-1.jpg" alt="" class="img-a img-fluid">
+                  <img src="images_services/maison/<?php echo $selection_biens_maison_agent[$i]['image_maison'] ?>" alt="" class="img-a img-fluid" style="width:400px; height : 400px">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
+                        <a href="property-single.php?id_service=<?php echo  $selection_biens_maison_agent[$i]['id_maison'] ?>&extension=maison"><?php echo $selection_biens_maison_agent[$i]['nom_maison']?></a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
+                        <span class="price-a"><?php echo  $selection_biens_maison_agent[$i]['status_maison'] ?> | <?php echo  $selection_biens_maison_agent[$i]['prix_maison'] ?> FCFA</span>
                       </div>
-                      <a href="#" class="link-a">Click here to view
+                      <a href="property-single.php?id_service=<?php echo  $selection_biens_maison_agent[$i]['id_maison'] ?>&extension=maison" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -242,13 +236,13 @@
                       <ul class="card-info d-flex justify-content-around">
                         <li>
                           <h4 class="card-info-title">Area</h4>
-                          <span>340m
+                          <span><?php echo  $selection_biens_maison_agent[$i]['surface_maison'] ?>m
                             <sup>2</sup>
                           </span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
+                          <span><?php echo  $selection_biens_maison_agent[$i]['nombre_lit_maison'] ?></span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Baths</h4>
@@ -256,7 +250,7 @@
                         </li>
                         <li>
                           <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
+                          <span><?php echo  $selection_biens_maison_agent[$i]['nombre_de_garage_maison'] ?></span>
                         </li>
                       </ul>
                     </div>
@@ -264,24 +258,34 @@
                 </div>
               </div>
             </div>
+          <?php
+            }
+          ?>
+          <!--Fin de l'affichage des propriétés maison-->
+
+          <!--Debut de l'affichage des propriétés appartement-->
+          <h1><i>APPARTEMENT</i></h1>
+          <?php
+            for($i = 0; $i < count($selection_biens_appartement_agent); $i ++)
+            {
+          ?>
             <div class="col-md-4">
-              <div class="card-box-a card-shadow">
+              <div class="card-box-a card-shadow border">
                 <div class="img-box-a">
-                  <img src="assets/img/property-3.jpg" alt="" class="img-a img-fluid">
+                  <img src="images_services/app/<?php echo $selection_biens_appartement_agent[$i]['image_app'] ?>" alt="" class="img-a img-fluid" style="width:400px; height : 400px">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
+                        <a href="property-single.php?id_service=<?php echo  $selection_biens_appartement_agent[$i]['id_app'] ?>&extension=app"><?php echo $selection_biens_appartement_agent[$i]['nom_app']?></a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
+                        <span class="price-a"><?php echo  $selection_biens_appartement_agent[$i]['status_app'] ?> | <?php echo  $selection_biens_appartement_agent[$i]['prix_app'] ?> FCFA</span>
                       </div>
-                      <a href="#" class="link-a">Click here to view
+                      <a href="property-single.php?id_service=<?php echo  $selection_biens_appartement_agent[$i]['id_app'] ?>&extension=app" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -289,13 +293,13 @@
                       <ul class="card-info d-flex justify-content-around">
                         <li>
                           <h4 class="card-info-title">Area</h4>
-                          <span>340m
+                          <span><?php echo  $selection_biens_appartement_agent[$i]['surface_app'] ?>m
                             <sup>2</sup>
                           </span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
+                          <span><?php echo  $selection_biens_appartement_agent[$i]['nombre_lit_app'] ?></span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Baths</h4>
@@ -303,7 +307,7 @@
                         </li>
                         <li>
                           <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
+                          <span><?php echo  $selection_biens_appartement_agent[$i]['nombre_de_garage_app'] ?></span>
                         </li>
                       </ul>
                     </div>
@@ -311,24 +315,34 @@
                 </div>
               </div>
             </div>
+          <?php
+            }
+          ?>
+          <!--Fin de l'affichage des propriétés appartement-->
+
+          <!--Debut de l'affichage des propriétés studio-->
+          <h1><i>STUDIO</i></h1>
+          <?php
+            for($i = 0; $i < count($selection_biens_studio_agent); $i ++)
+            {
+          ?>
             <div class="col-md-4">
-              <div class="card-box-a card-shadow">
+              <div class="card-box-a card-shadow border">
                 <div class="img-box-a">
-                  <img src="assets/img/property-6.jpg" alt="" class="img-a img-fluid">
+                  <img src="images_services/studio/<?php echo $selection_biens_studio_agent[$i]['image_studio'] ?>" alt="" class="img-a img-fluid" style="width:400px; height : 400px">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
+                        <a href="property-single.php?id_service=<?php echo  $selection_biens_studio_agent[$i]['id_studio'] ?>&extension=studio"><?php echo $selection_biens_studio_agent[$i]['nom_studio']?></a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
+                        <span class="price-a"><?php echo  $selection_biens_studio_agent[$i]['status_studio'] ?> | <?php echo  $selection_biens_studio_agent[$i]['prix_studio'] ?> FCFA</span>
                       </div>
-                      <a href="#" class="link-a">Click here to view
+                      <a href="property-single.php?id_service=<?php echo  $selection_biens_studio_agent[$i]['id_studio'] ?>&extension=studio" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -336,13 +350,9 @@
                       <ul class="card-info d-flex justify-content-around">
                         <li>
                           <h4 class="card-info-title">Area</h4>
-                          <span>340m
+                          <span><?php echo  $selection_biens_studio_agent[$i]['surface_studio'] ?>m
                             <sup>2</sup>
                           </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Baths</h4>
@@ -350,7 +360,7 @@
                         </li>
                         <li>
                           <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
+                          <span><?php echo  $selection_biens_studio_agent[$i]['nombre_de_garage_studio'] ?></span>
                         </li>
                       </ul>
                     </div>
@@ -358,24 +368,34 @@
                 </div>
               </div>
             </div>
+          <?php
+            }
+          ?>
+          <!--Fin de l'affichage des propriétés studio-->
+
+          <!--Debut de l'affichage des propriétés terrain-->
+          <h1><i>TERRAIN</i></h1>
+          <?php
+            for($i = 0; $i < count($selection_biens_terrain_agent); $i ++)
+            {
+          ?>
             <div class="col-md-4">
-              <div class="card-box-a card-shadow">
+              <div class="card-box-a card-shadow border">
                 <div class="img-box-a">
-                  <img src="assets/img/property-7.jpg" alt="" class="img-a img-fluid">
+                  <img src="images_services/terrain/<?php echo $selection_biens_terrain_agent[$i]['image_terrain'] ?>" alt="" class="img-a img-fluid" style="width:400px; height : 400px">
                 </div>
                 <div class="card-overlay">
                   <div class="card-overlay-a-content">
                     <div class="card-header-a">
                       <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
+                        <a href="property-single.php?id_service=<?php echo  $selection_biens_terrain_agent[$i]['id_terrain'] ?>&extension=terrain"><?php echo $selection_biens_terrain_agent[$i]['nom_terrain']?></a>
                       </h2>
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
+                        <span class="price-a"><?php echo  $selection_biens_terrain_agent[$i]['status_terrain'] ?> | <?php echo  $selection_biens_terrain_agent[$i]['prix_terrain'] ?> FCFA</span>
                       </div>
-                      <a href="#" class="link-a">Click here to view
+                      <a href="property-single.php?id_service=<?php echo  $selection_biens_terrain_agent[$i]['id_terrain'] ?>&extension=terrain" class="link-a">Click here to view
                         <span class="bi bi-chevron-right"></span>
                       </a>
                     </div>
@@ -383,122 +403,23 @@
                       <ul class="card-info d-flex justify-content-around">
                         <li>
                           <h4 class="card-info-title">Area</h4>
-                          <span>340m
+                          <span><?php echo  $selection_biens_terrain_agent[$i]['surface_terrain'] ?>m
                             <sup>2</sup>
                           </span>
                         </li>
                         <li>
-                          <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
-                        </li>
                         <li>
-                          <h4 class="card-info-title">Baths</h4>
-                          <span>4</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
-                        </li>
                       </ul>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="assets/img/property-8.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
-                      </div>
-                      <a href="#" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Area</h4>
-                          <span>340m
-                            <sup>2</sup>
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Baths</h4>
-                          <span>4</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card-box-a card-shadow">
-                <div class="img-box-a">
-                  <img src="assets/img/property-10.jpg" alt="" class="img-a img-fluid">
-                </div>
-                <div class="card-overlay">
-                  <div class="card-overlay-a-content">
-                    <div class="card-header-a">
-                      <h2 class="card-title-a">
-                        <a href="#">204 Mount
-                          <br /> Olive Road Two</a>
-                      </h2>
-                    </div>
-                    <div class="card-body-a">
-                      <div class="price-box d-flex">
-                        <span class="price-a">rent | $ 12.000</span>
-                      </div>
-                      <a href="#" class="link-a">Click here to view
-                        <span class="bi bi-chevron-right"></span>
-                      </a>
-                    </div>
-                    <div class="card-footer-a">
-                      <ul class="card-info d-flex justify-content-around">
-                        <li>
-                          <h4 class="card-info-title">Area</h4>
-                          <span>340m
-                            <sup>2</sup>
-                          </span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Beds</h4>
-                          <span>2</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Baths</h4>
-                          <span>4</span>
-                        </li>
-                        <li>
-                          <h4 class="card-info-title">Garages</h4>
-                          <span>1</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <?php
+            }
+          ?>
+          <!--Fin de l'affichage des propriétés terrain-->
+
           </div>
         </div>
       </div>

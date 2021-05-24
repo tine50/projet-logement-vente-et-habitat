@@ -4,7 +4,7 @@
   include "bd/selection_agent.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -361,10 +361,6 @@
                             <sup>2</sup>
                           </span>
                         </li>
-                        <!-- <li>
-                          <h4 class="card-info-title">Beds</h4>
-                          <span><?php echo  $selection_studio[$i]['nombre_lit_maison'] ?></span>
-                        </li> -->
                         <li>
                           <h4 class="card-info-title">Piéces</h4>
                           <span><?php echo  $selection_studio[$i]['nombre_chambre_studio'] ?></span>
@@ -447,18 +443,6 @@
                             <sup>2</sup>
                           </span>
                         </li>
-                        <!-- <li>
-                          <h4 class="card-info-title">Piéces</h4>
-                          <span></span>
-                        </li> -->
-                        <!-- <li>
-                          <h4 class="card-info-title">Baths</h4>
-                          <span>4</span>
-                        </li> -->
-                        <!-- <li>
-                          <h4 class="card-info-title">Garages</h4>
-                          <span></span>
-                        </li> -->
                       </ul>
                     </div>
                   </div>
@@ -487,7 +471,7 @@
           <div class="col-md-12">
             <div class="title-wrap d-flex justify-content-between">
               <div class="title-box">
-                <h2 class="title-a">Meilleurs agents                </h2>
+                <h2 class="title-a">Meilleurs agents</h2>
               </div>
               <div class="title-link">
                 <a href="agents-grid.php">All Agents
@@ -710,7 +694,7 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="testimonial-img">
-                      <img src="assets/img/testimonial-1.jpg" alt="" class="img-fluid">
+                      <img src="temoignages/lion.jpg" alt="" style="width:200px; heigth:400px" class="img-fluid">
                     </div>
                   </div>
                   <div class="col-sm-12 col-md-6">
@@ -725,8 +709,8 @@
                       </p>
                     </div>
                     <div class="testimonial-author-box">
-                      <img src="assets/img/mini-testimonial-1.jpg" alt="" class="testimonial-avatar">
-                      <h5 class="testimonial-author">Albert & Erika</h5>
+                      <img src="temoignages/lion.jpg" alt="" class="testimonial-avatar">
+                      <h5 class="testimonial-author">Adama DABO</h5>
                     </div>
                   </div>
                 </div>
@@ -738,7 +722,7 @@
                 <div class="row">
                   <div class="col-sm-12 col-md-6">
                     <div class="testimonial-img">
-                      <img src="assets/img/testimonial-2.jpg" alt="" class="img-fluid">
+                      <img src="temoignages/isep.jpg" style="width:200px; heigth:200px" alt="" class="img-fluid">
                     </div>
                   </div>
                   <div class="col-sm-12 col-md-6">
@@ -753,8 +737,8 @@
                       </p>
                     </div>
                     <div class="testimonial-author-box">
-                      <img src="assets/img/mini-testimonial-2.jpg" alt="" class="testimonial-avatar">
-                      <h5 class="testimonial-author">Pablo & Emma</h5>
+                      <img src="temoignages/isep.jpg" alt="" class="testimonial-avatar">
+                      <h5 class="testimonial-author">ISEP <DD></DD></h5>
                     </div>
                   </div>
                 </div>

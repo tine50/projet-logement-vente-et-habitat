@@ -1,4 +1,6 @@
 <?php
+
+//Debut Selection de tous les services de vente par unité de 5.
 $selection_maison = $bdd->query("SELECT * FROM maison ORDER BY id_maison DESC LIMIT 5");
 $selection_maison = $selection_maison->fetchAll();
 // var_dump($selection_maison);
@@ -13,7 +15,27 @@ $selection_studio = $selection_studio->fetchAll();
 $selection_terrain = $bdd->query("SELECT * FROM terrain ORDER BY id_terrain DESC LIMIT 5");
 $selection_terrain = $selection_terrain->fetchAll();
 
-// Selection de tous les services de vente
+//Fin Selection de tous les services de vente par unité de 5.
+
+//Debut Selection de tous les services de vente.
+
+$selection_all_maison = $bdd->query("SELECT * FROM maison");
+$selection_all_maison = $selection_all_maison->fetchAll();
+
+$selection_all_appartement = $bdd->query("SELECT * FROM appartement");
+$selection_all_appartement = $selection_all_appartement->fetchAll();
+
+$selection_all_studio = $bdd->query("SELECT * FROM studio");
+$selection_all_studio = $selection_all_studio->fetchAll();
+
+$selection_all_terrain = $bdd->query("SELECT * FROM terrain");
+$selection_all_terrain = $selection_all_terrain->fetchAll();
+
+
+//Debut Selection de tous les services de vente.
+
+
+
 
 
 switch(@$type_service)
@@ -68,4 +90,26 @@ switch(@$extension_service)
         // var_dump($selection_service);
         break;
 }
+
+//Debut de selection des differents bien de chaque agent
+if(@$selection_agent_unique)
+{
+    $selection_biens_maison_agent = $bdd->prepare("SELECT * FROM maison WHERE id_agent = ?");
+    $selection_biens_maison_agent->execute(array($selection_agent_unique));
+    $selection_biens_maison_agent = $selection_biens_maison_agent->fetchAll();
+
+    $selection_biens_appartement_agent = $bdd->prepare("SELECT * FROM appartement WHERE id_agent = ?");
+    $selection_biens_appartement_agent->execute(array($selection_agent_unique));
+    $selection_biens_appartement_agent = $selection_biens_appartement_agent->fetchAll();
+
+    $selection_biens_studio_agent = $bdd->prepare("SELECT * FROM studio WHERE id_agent = ?");
+    $selection_biens_studio_agent->execute(array($selection_agent_unique));
+    $selection_biens_studio_agent = $selection_biens_studio_agent->fetchAll();
+
+    $selection_biens_terrain_agent = $bdd->prepare("SELECT * FROM terrain WHERE id_agent = ?");
+    $selection_biens_terrain_agent->execute(array($selection_agent_unique));
+    $selection_biens_terrain_agent = $selection_biens_terrain_agent->fetchAll();
+}
+
+//Fin de selection des differents bien de chaque agent
 ?>

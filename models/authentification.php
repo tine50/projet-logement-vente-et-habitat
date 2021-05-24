@@ -1,13 +1,13 @@
 <?php
    if(isset($_POST["register-submit"]))
    {
-      echo @$LastName=stripslashes(trim($_POST["LastName"]));
-      echo @$FisrtName=stripslashes(trim($_POST["FisrtName"]));
-      echo @$email=$_POST["email"];
-      echo @$sexe = $_POST["sexe"];
-      echo @$password=$_POST["password"];
-      echo @$confirm_password=$_POST["confirm-password"];
-      echo @$valider=$_POST["register-submit"];
+      @$LastName=stripslashes(trim($_POST["LastName"]));
+      @$FisrtName=stripslashes(trim($_POST["FisrtName"]));
+      @$email=$_POST["email"];
+      @$sexe = $_POST["sexe"];
+      @$password=$_POST["password"];
+      @$confirm_password=$_POST["confirm-password"];
+      @$valider=$_POST["register-submit"];
       $erreur="";
          if(empty($LastName)) $erreur="Nom laissé vide!";
          elseif(empty($FisrtName)) $erreur="Prénom laissé vide!";
@@ -16,8 +16,6 @@
          elseif(empty($password)) $erreur="Mot de passe laissé vide!";
          elseif($password!=$confirm_password) $erreur="Mots de passe non identiques!";
          else{
-            
-               echo "bon";
                $verification_email=$bdd->prepare("SELECT id_client FROM client WHERE email_client =? limit 1");
                $verification_email->execute(array($email));
                $verification_email=$verification_email->fetchAll();

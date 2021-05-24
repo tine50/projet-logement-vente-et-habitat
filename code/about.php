@@ -1,5 +1,9 @@
+<?php
+ include "connexion_base_donnee/connexion_db.php";
+ include "bd/selection_agent.php";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -69,20 +73,6 @@
           <li class="nav-item">
             <a class="nav-link " href="agents-grid.php">Agents</a>
           </li>
-
-          <!-- <li class="nav-item">
-            <a class="nav-link " href="blog-grid.php">Blog</a>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item " href="property-single.php">Propriété unique</a>
-              <a class="dropdown-item " href="blog-single.php">Blog unique</a>
-              <a class="dropdown-item " href="agents-grid.php">Grille d'agent</a>
-              <a class="dropdown-item " href="agent-single.php">Agent unique</a>
-            </div>
-          </li> -->
           <li class="nav-item">
             <a class="nav-link " href="contact.php">Contacter</a>
           </li>
@@ -143,7 +133,7 @@
           <div class="col-md-12 section-t8 position-relative">
             <div class="row">
               <div class="col-md-6 col-lg-5">
-                <img src="assets/img/about-2.jpg" alt="" class="img-fluid">
+                <img src="image_agents/agent-1.jpeg" alt="" class="img-fluid">
               </div>
               <div class="col-lg-2  d-none d-lg-block position-relative">
                 <div class="title-vertical d-flex justify-content-start">
@@ -186,34 +176,43 @@
               <div class="title-box">
                 <h2 class="title-a">Rencontrez notre équipe</h2>
               </div>
+              <div class="title-link float-end">
+                <a href="agents-grid.php">All Agents
+                <span class="bi bi-chevron-right"></span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
+
+        <?php
+        for($z = 0; $z < count($selection_agent_index); $z ++)
+        {
+        ?>
           <div class="col-md-4">
             <div class="card-box-d">
               <div class="card-img-d">
-                <img src="assets/img/agent-1.jpeg" alt="" class="img-d img-fluid">
+                <img src="image_agents/<?php echo $selection_agent_index[$z]['image_agent'] ?>" alt="" class="img-d img-fluid">
               </div>
               <div class="card-overlay card-overlay-hover">
                 <div class="card-header-d">
                   <div class="card-title-d align-self-center">
                     <h3 class="title-d">
-                      <a href="agent-single.php" class="link-two">Elhadji Yaya
-                        <br> NDIAYE</a>
+                      <a href="agent-single.php?id=<?php echo $selection_agent_index[$z]['id_agent'] ?>" class="link-two"><?php echo $selection_agent_index[$z]['prenom_agent'] ?> <?php echo $selection_agent_index[$z]['nom_agent'] ?></a>
                     </h3>
                   </div>
                 </div>
                 <div class="card-body-d">
                   <p class="content-d color-text-a">
-                    Le meilleur développeur
+                    Charger des relations entre les clients
                   </p>
                   <div class="info-agents color-a">
                     <p>
-                      <strong>Phone: </strong> (+221) 77 593 23 04
+                      <strong>Phone: </strong> <?php echo $selection_agent_index[$z]['telephone_agent'] ?>
                     </p>
                     <p>
-                      <strong>Email: </strong> elhadjiyn@gmail.com
+                      <strong>Email: </strong> <?php echo $selection_agent_index[$z]['email_agent'] ?>
                     </p>
                   </div>
                 </div>
@@ -246,132 +245,12 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="assets/img/agent-6.jpg" alt="" class="img-d img-fluid">
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="agent-single.php" class="link-two">Stiven Spilver
-                        <br> Darw</a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-                  </p>
-                  <div class="info-agents color-a">
-                    <p>
-                      <strong>Phone: </strong> +54 356 945234
-                    </p>
-                    <p>
-                      <strong>Email: </strong> agents@example.com
-                    </p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-dribbble" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-d">
-              <div class="card-img-d">
-                <img src="assets/img/agent-5.jpeg" alt="" class="img-d img-fluid">
-              </div>
-              <div class="card-overlay card-overlay-hover">
-                <div class="card-header-d">
-                  <div class="card-title-d align-self-center">
-                    <h3 class="title-d">
-                      <a href="agent-single.php" class="link-two">Mame Fatima
-                        <br> NDIAYE</a>
-                    </h3>
-                  </div>
-                </div>
-                <div class="card-body-d">
-                  <p class="content-d color-text-a">
-                    La best developpeuse de tout les temps
-                  </p>
-                  <div class="info-agents color-a">
-                    <p>
-                      <strong>Phone: </strong> (+221) 77 408 66 28
-                    </p>
-                    <p>
-                      <strong>Email: </strong> mamefatima@gmail.com
-                    </p>
-                  </div>
-                </div>
-                <div class="card-footer-d">
-                  <div class="socials-footer d-flex justify-content-center">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-facebook" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-twitter" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-linkedin" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#" class="link-one">
-                          <i class="bi bi-dribbble" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <?php
+        }
+        ?>
         </div>
       </div>
     </section><!-- End About Section-->
-
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

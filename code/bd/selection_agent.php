@@ -1,8 +1,9 @@
 <?php
-    @$id_agent = $selection_service["id_agent"];
+    
 
     if(@$extension_service)
     {
+        @$id_agent = $selection_service["id_agent"];
         $selection_agent = $bdd->prepare("SELECT * FROM agent WHERE id_agent = ?");
         $selection_agent->execute(array($id_agent));
         $selection_agent = $selection_agent->fetch(PDO::FETCH_ASSOC);

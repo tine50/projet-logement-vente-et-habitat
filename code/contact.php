@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -251,7 +251,15 @@
         </div>
       </div>
     </section><!-- End Contact Single-->
-
+    <!--Debut sponsor-->
+    <center class="mt-5"><u><h1>SPONSORS</h1></u></center>
+    <div class="d-flex justify-content-around mt-5">
+          <img src="sponsor/pigeonOnline.jpg" alt="" srcset="" style="width: 200px; heigth: 200px">
+          <img src="sponsor/isep.jpg" alt="" srcset="" style="width: 200px; heigth: 200px">
+          <img src="sponsor/ministere.jpg" alt="" srcset="" style="width: 200px; heigth: 200px">
+          
+        </div>
+    <!--Debut sponsor-->
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
